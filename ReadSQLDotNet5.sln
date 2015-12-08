@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FCF0FBAC-07D6-43E8-8FB4-968E3A02C9B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{446A5EBA-0B3A-4E8E-8407-3B0B5EAE8628}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ReadSQLDotNet5", "src\ReadSQLDotNet5\ReadSQLDotNet5.xproj", "{9D7BC568-488A-4411-B9B7-6B5946A6E46C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{96838705-80B1-4CAD-B94E-4519FAAE0FC0}"
+	ProjectSection(SolutionItems) = preProject
+		src\SQL\CreateCity.sql = src\SQL\CreateCity.sql
+		src\SQL\CreateContact.sql = src\SQL\CreateContact.sql
+		src\SQL\CreateState.sql = src\SQL\CreateState.sql
+		src\SQL\CreateTables.cmd = src\SQL\CreateTables.cmd
+		src\SQL\DropTables.sql = src\SQL\DropTables.sql
+		src\SQL\ExportData.cmd = src\SQL\ExportData.cmd
+		src\SQL\LoadData.cmd = src\SQL\LoadData.cmd
+		src\SQL\Queries.sql = src\SQL\Queries.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D7BC568-488A-4411-B9B7-6B5946A6E46C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D7BC568-488A-4411-B9B7-6B5946A6E46C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D7BC568-488A-4411-B9B7-6B5946A6E46C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D7BC568-488A-4411-B9B7-6B5946A6E46C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9D7BC568-488A-4411-B9B7-6B5946A6E46C} = {FCF0FBAC-07D6-43E8-8FB4-968E3A02C9B7}
+		{96838705-80B1-4CAD-B94E-4519FAAE0FC0} = {FCF0FBAC-07D6-43E8-8FB4-968E3A02C9B7}
+	EndGlobalSection
+EndGlobal
