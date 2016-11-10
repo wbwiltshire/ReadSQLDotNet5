@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace ReadSQLDotNet5
 {
@@ -7,10 +8,15 @@ namespace ReadSQLDotNet5
     {
         public static void Main(string[] args)
         {
+            //Initialize
+            IConfigurationRoot config;
+            var builder = new ConfigurationBuilder().
+                       AddJsonFile("config.json");
+            config = builder.Build();
 
             //Test synchronous access to the database
             Console.WriteLine("Starting sychronous DB access.");
-            SyncDB sdb = new SyncDB();
+            SyncDB sdb = new SyncDB(config);
 
             sdb.FindAll();
             Console.WriteLine();
@@ -23,7 +29,7 @@ namespace ReadSQLDotNet5
 
             //Test Asynchronous access to the database
             Console.WriteLine("Starting asychronous DB access.");
-            AsyncDB adb = new AsyncDB();
+            AsyncDB adb = new AsyncDB(config);
 
             var t = new TaskFactory().StartNew(async () =>
             {

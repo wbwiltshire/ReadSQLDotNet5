@@ -1,23 +1,25 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Data.SqlClient;
 
 namespace ReadSQLDotNet5
 {
     public class SyncDB
     {
-        string connectionString = @"Server=SCHVW2K12R2-DB\MSSQL2014;Database=Customer;Integrated Security=True;Trusted_Connection=True;Encrypt=False;Connection Timeout=30;";
+        string connectionString;
         SqlConnection conn;
-        public SyncDB()
+        public SyncDB(IConfigurationRoot c)
         {
+            connectionString = c.GetSection("Data:ConnectionString").Value;
             try
             {
-                conn = new SqlConnection(connectionString);
-                Console.WriteLine("Opening the database connection.");
-                conn.Open();
+               conn = new SqlConnection(connectionString);
+               Console.WriteLine("Opening the database connection.");
+               conn.Open();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex.Message);
+               Console.WriteLine("Exception: " + ex.Message);
             }
         }
 

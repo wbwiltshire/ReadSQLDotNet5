@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
@@ -7,8 +8,12 @@ namespace ReadSQLDotNet5
 {
     public class AsyncDB
     {
-        string connectionString = @"Server=SCHVW2K12R2-DB\MSSQL2014;Database=Customer;Integrated Security=True;Trusted_Connection=True;Encrypt=False;Connection Timeout=30;";
+        string connectionString;
         SqlConnection conn;
+        public AsyncDB(IConfigurationRoot c)
+        {
+            connectionString = c.GetSection("Data:ConnectionString").Value;
+        }
 
         public async Task FindAll()
         {
