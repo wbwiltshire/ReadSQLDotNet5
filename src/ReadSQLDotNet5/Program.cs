@@ -6,7 +6,7 @@ namespace ReadSQLDotNet5
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             //Initialize
             IConfigurationRoot config;
@@ -31,17 +31,14 @@ namespace ReadSQLDotNet5
             Console.WriteLine("Starting asychronous DB access.");
             AsyncDB adb = new AsyncDB(config);
 
-            var t = new TaskFactory().StartNew(async () =>
-            {
-                await adb.FindAll();
-                Console.WriteLine();
-                await adb.FindByPK(4);
-                Console.WriteLine();
-                adb.Close();
+            await adb.FindAll();
+            Console.WriteLine();
+            await adb.FindByPK(4);
+            Console.WriteLine();
+            adb.Close();
 
-                Console.WriteLine();
-                Console.WriteLine("Asychronous DB access complete.");
-            });
+            Console.WriteLine();
+            Console.WriteLine("Asychronous DB access complete.");
 
             Console.WriteLine();
             Console.WriteLine("Press <enter> key to when you see that Asyncychronous DB access is complete.");
